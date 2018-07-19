@@ -56,9 +56,11 @@ public class BallotsControllerEdit extends HttpServlet{
 						ArrayList<String> ancho = new ArrayList<String>();
 						ArrayList<String> aro = new ArrayList<String>();
 						for(int i = 0; i < prod.size() ; i++){
-							largo.add(prod.get(i).getMedida().substring(0, prod.get(i).getMedida().indexOf("/")));
-							ancho.add(prod.get(i).getMedida().substring(prod.get(i).getMedida().indexOf("/")+1));
-							aro.add(prod.get(i).getAro());
+							if(prod.get(i).isStock()){
+								largo.add(prod.get(i).getMedida().substring(0, prod.get(i).getMedida().indexOf("/")));
+								ancho.add(prod.get(i).getMedida().substring(prod.get(i).getMedida().indexOf("/")+1));
+								aro.add(prod.get(i).getAro());
+							}
 						}
 						for(int i = 0; i < largo.size(); i++){
 							for(int j = 0; j <largo.size();j++){
@@ -78,7 +80,7 @@ public class BallotsControllerEdit extends HttpServlet{
 									aro.remove(j);
 							}
 						}
-						
+
 						request.setAttribute("largo", largo);
 						request.setAttribute("ancho", ancho);
 						request.setAttribute("aro", aro);

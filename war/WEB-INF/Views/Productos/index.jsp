@@ -27,6 +27,7 @@
             
                
                <ul class="nav">
+               <li><a href="/ballots/rank"> Reporte</a></li>
                      <li><a href="/roles"> Roles </a>
                        <ul>
                             <li><a id="add"href="/roles/add" >Añadir rol</a></li>
@@ -88,6 +89,7 @@
 						<th>MEDIDA</th>
 						<th>PRECIO</th>
 						<th>ARO</th>
+						<th>STOCK</th>
 						<th>FUNCIONES</th>
 					</tr>
 				<% for (Producto us: productos){%>
@@ -98,6 +100,7 @@
 						<td><%=us.getMedida() %></td>
 						<td><%=us.getPrecio() %></td>
 						<td><%=us.getAro() %></td>
+						<td><%=us.isStock() %></td>
 					  <td >
                 	<a href="/productos/view?id=<%=us.getId() %>">Ver</a>
                 	<a href="/productos/edit?id=<%=us.getId() %>">Editar</a>

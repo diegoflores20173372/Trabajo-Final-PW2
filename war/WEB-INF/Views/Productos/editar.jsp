@@ -24,6 +24,7 @@
             
                 
                <ul class="nav">
+               <li><a href="/ballots/rank"> Reporte</a></li>
                      <li><a href="/roles"> Roles </a>
                        <ul>
                             <li><a id="add"href="/roles/add" >Añadir rol</a></li>
@@ -88,6 +89,7 @@
 				<input type="number" step="0.01" name="precio" placeholder="Edita el precio" value="<%=produc.getPrecio() %>" required class="form-control">
 				<label>Edite su tamaño aro</label>
 				<input type="number" name="aro" placeholder="Edita tu tamaño" value="<%=produc.getAro() %>" required class="form-control">
+				<label>Stock</label>
 				<select class="form-control" name="stock">
 					<option value="true" >True
 					</option>

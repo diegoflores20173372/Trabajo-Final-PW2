@@ -31,6 +31,7 @@
 
 
 	<ul class="nav">
+	<li><a href="/ballots/rank"> Reporte</a></li>
 		<li><a href="/roles"> Roles </a>
 			<ul>
 				<li><a id="add" href="/roles/add">Añadir rol</a></li>
@@ -94,21 +95,21 @@
 			<label>N° Boleta: </label> 
 			<input class="form-control" type="text" readonly value="<%=NBoleta%>"><br /> 
 			<label>Llanta: </label> <br>
-			<select name="ancho" class="selectmod" >
+			<select name="largo" class="selectmod" >
 			<%for(String l : largo){ %>
-				<option value="<%=l %>" <%if(l.equals(aux.getMedida().substring(0, aux.getMedida().indexOf("/")))){ %> autofocus <%} %>><%=l %></option>
+				<option value="<%=l %>" <%if(l.equals(aux.getMedida().substring(0, aux.getMedida().indexOf("/")))){ %> selected <%} %>><%=l %></option>
 				<%} %>
 			</select>
 			/
-			<select name="largo" class="selectmod" >
+			<select name="ancho" class="selectmod" >
 			<%for(String an : ancho){ %>	
-				<option value="<%=an %>" <%if(an.equals(aux.getMedida().substring(aux.getMedida().indexOf("/")))){ %> autofocus <%} %>><%=an %></option>
+				<option value="<%=an %>" <%if(an.equals(aux.getMedida().substring(aux.getMedida().indexOf("/")+1))){ %> selected <%} %>><%=an %></option>
 				<%} %>
 			</select>
 			R
 			<select name="aro" class="selectmod" >
 			<%for(String ar : aro){ %>	
-				<option value="<%=ar %>" <%if(ar.equals(aux.getAro())){ %> autofocus <%} %>><%=ar %></option>
+				<option value="<%=ar %>" <%if(ar.equals(aux.getAro())){ %> selected <%} %>><%=ar %></option>
 				<%} %>
 			</select>
 			<label>PrecioUnitario: </label> 

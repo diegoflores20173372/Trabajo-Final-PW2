@@ -56,9 +56,29 @@ public class BallotsControllerBuy extends HttpServlet{
 						ArrayList<String> ancho = new ArrayList<String>();
 						ArrayList<String> aro = new ArrayList<String>();
 						for(int i = 0; i < produ.size() ; i++){
-							largo.add(produ.get(i).getMedida().substring(0, produ.get(i).getMedida().indexOf("/")));
-							ancho.add(produ.get(i).getMedida().substring(produ.get(i).getMedida().indexOf("/")+1));
-							aro.add(produ.get(i).getAro());
+							if(produ.get(i).isStock()){
+								largo.add(produ.get(i).getMedida().substring(0, produ.get(i).getMedida().indexOf("/")));
+								ancho.add(produ.get(i).getMedida().substring(produ.get(i).getMedida().indexOf("/")+1));
+								aro.add(produ.get(i).getAro());
+							}
+						}
+						for(int i = 0; i < largo.size(); i++){
+							for(int j = 0; j <largo.size();j++){
+								if(largo.get(i).equals(largo.get(j)) && i != j)
+									largo.remove(j);
+							}
+						}
+						for(int i = 0; i < ancho.size(); i++){
+							for(int j = 0; j <ancho.size();j++){
+								if(ancho.get(i).equals(ancho.get(j)) && i != j)
+									ancho.remove(j);
+							}
+						}
+						for(int i = 0; i < aro.size(); i++){
+							for(int j = 0; j < aro.size();j++){
+								if(aro.get(i).equals(aro.get(j)) && i != j)
+									aro.remove(j);
+							}
 						}
 						request.setAttribute("largo", largo);
 						request.setAttribute("ancho", ancho);
